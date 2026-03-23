@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đồng Nai - Đất lành chim đậu</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+
+/* background */
+body{
+  background:linear-gradient(120deg,#FFEABB,#FBC3C1);
+  transition:0.8s;
+}
+
+/* header */
+header{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+  url('https://picsum.photos/1600/900?1') center/cover;
+}
+header h1{color:#fff;font-size:48px}
+
+/* section */
+section{
+  padding:80px 10%;
+  min-height:80vh;
+  text-align:center;
+}
+
+h2{margin-bottom:30px}
+
+/* intro */
+.intro-box{
+  width:70%;
+  margin:0 auto 30px;
+  padding:20px;
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(8px);
+  border-radius:15px;
+  box-shadow: -5px -5px 15px rgba(255,255,255,0.6),
+              5px 5px 20px rgba(0,0,0,0.2);
+  text-align:left;
+  line-height:1.6;
+}
+
+/* slider */
+.slider{
+  width:80%;
+  margin:auto;
+  overflow:hidden;
+  border-radius:20px;
+}
+.slides{
+  display:flex;
+  transition:0.6s;
+}
+.slides img{
+  min-width:100%;
+  height:400px;
+  object-fit:cover;
+}
+
+/* grid */
+.hover-box{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+/* item */
+.item{
+  width:260px;
+  border-radius:15px;
+  overflow:hidden;
+  cursor:pointer;
+  background:white;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+
+.item:hover{
+  transform:scale(1.07);
+}
+
+.item img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+/* caption */
+.caption{
+  padding:10px;
+  font-size:14px;
+  font-style:italic;
+  color:#555;
+  background:linear-gradient(to right,#fff,#f3f3f3);
+}
+
+/* modal */
+.modal{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.85);
+}
+
+.modal-content{
+  width:75%;
+  height:75%;
+  background:white;
+  display:flex;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.modal-content img{width:60%}
+
+.modal-text{
+  padding:30px;
+  text-align:justify;
+  line-height:1.7;
+}
+
+/* close */
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:30px;
+  color:white;
+  cursor:pointer;
+}
+
+/* member */
+.member-box{
+  width:65%;
+  margin:auto;
+  padding:30px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.6);
+}
+.member-box ul{list-style:none}
+.member-box li{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 0;
+  border-bottom:1px solid #ddd;
+}
+.member-box img{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+}
+
+/* footer */
+footer{
+  background:#333;
+  color:white;
+  text-align:center;
+  padding:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Đồng Nai - Đất lành chim đậu</h1>
+</header>
+
+<!-- Ý 1 -->
+<section>
+<h2>Tổng quan "Gia Định xưa"</h2>
+
+<div class="intro-box">
+<p>📍 Đồng Nai giữ vị trí quan trọng trong vùng kinh tế phía Nam.</p>
+<p>📜 Năm 1698, Nguyễn Hữu Cảnh xác lập vùng đất Gia Định.</p>
+<p>🌾 Văn hóa miệt vườn, lịch sử hơn 300 năm.</p>
+</div>
+
+<div class="slider">
+<div class="slides" id="slides">
+<img src="images/img1.jpg">
+<img src="images/img2.jpg">
+<img src="images/img3.jpg">
+<img src="images/img4.jpg">
+</div>
+</div>
+</section>
+
+<!-- Ý 2 -->
+<section>
+<h2>Lịch sử & Văn hóa</h2>
+<div class="hover-box">
+
+<div class="item" onclick="openModal(this)" data-text="Là văn miếu đầu tiên ở Nam Bộ, được xây dựng từ năm 1715, Văn miếu Trấn Biên là biểu tượng cho truyền thống hiếu học và tôn sư trọng đạo của người Việt. Nơi đây thờ Khổng Tử và các bậc hiền triết, đồng thời là không gian văn hóa - giáo dục quan trọng, góp phần gìn giữ và phát huy tinh thần học tập của người dân Đồng Nai.">
+<img src="images/img5.jpg">
+<div class="caption">Văn miếu Trấn Biên</div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="Mộ cự thạch Hàng Gòn là di tích khảo cổ có niên đại hơn 3000 năm, thuộc loại hình mộ đá cổ hiếm gặp ở Đông Nam Á. Công trình được tạo nên từ những phiến đá lớn, thể hiện trình độ kỹ thuật và đời sống tâm linh của cư dân tiền sử, mang giá trị lớn về lịch sử và khoa học.">
+<img src="images/img6.jpg">
+<div class="caption">Mộ cổ Hàng Gòn</div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="Làng bưởi Tân Triều nổi tiếng với giống bưởi đặc sản thơm ngon, gắn liền với đời sống nông nghiệp của người dân địa phương. Không chỉ là vùng trồng bưởi lâu đời, nơi đây còn mang đậm nét văn hóa miệt vườn và là điểm đến du lịch sinh thái hấp dẫn.">
+<img src="images/img7.jpg">
+<div class="caption">Làng bưởi Tân Triều</div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="Lễ hội Chùa Ông là lễ hội truyền thống mang đậm tín ngưỡng dân gian, thường diễn ra sôi nổi với nhiều hoạt động như cúng bái, diễu hành và biểu diễn nghệ thuật. Lễ hội thu hút đông đảo người dân và du khách đến cầu may mắn, bình an, thể hiện đời sống tinh thần phong phú của cộng đồng.">
+<img src="images/img8.jpg">
+<div class="caption">Lễ hội Chùa Ông</div>
+</div>
+
+</div>
+</section>
+
+<!-- Ý 3 -->
+<section>
+<h2>Thiên nhiên & Trải nghiệm</h2>
+<div class="hover-box">
+
+<div class="item" onclick="openModal(this)" data-text="-Vườn quốc gia (VQG) Nam Cát Tiên là khu dự trữ sinh quyển thế giới được UNESCO công nhận, nằm trên địa bàn 3 tỉnh Đồng Nai, Lâm Đồng và Bình Phước, cách TP.HCM khoảng 150-170km, nổi tiếng với rừng nhiệt đới ẩm, hệ động thực vật phong phú.">
+<img src="images/img10.jpg">
+<div class="caption">Vươn quốc gia Nam Cát Tiên</div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="-Hồ trị an & đảo ó: Hồ Trị An là hồ nước ngọt nhân tạo lớn tại Đồng Nai, cung cấp nước cho thủy điện và là điểm du lịch cắm trại, dã ngoại nổi tiếng cách TP.HCM khoảng 70km. Đảo Ó nằm trong lòng hồ Trị An, thuộc huyện Vĩnh Cửu, cách bến đò Đồng Trường khoảng 30 phút đi tàu/cano.
+">
+<img src="images/img11.jpg">
+<div class="caption">Đảo Ó</div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="-Thác Đá Hàn địa điểm du lịch sinh thái nổi tiếng tại huyện Trảng Bom, tỉnh Đồng Nai, cách TP.HCM khoảng 50-70km. Thác Đá Hàn mang nét hoang sơ với 3 dòng thác (Chàng, Nàng, Đá Hàn)">
+<img src="images/img13.jpg">
+<div class="caption">Thác Đá Hàn</div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="-Vườn trái cây Long Khánh (Đồng Nai) là thủ phú trái cây nổi tiếng gần TP.HCM, rộ nhất vào tháng 5-7 hàng năm với các loại chôm chôm, sầu riêng, măng cụt... Đặc trưng là trải nghiệm hái trái cây tại vườn, tham quan miệt vườn, ăn uống và các trò chơi dân gian. Các khu vực nổi tiếng bao gồm Bình Lộc, Xuân Lập, Bảo Quang.">
+<img src="images/img15.jpg">
+<div class="caption">Vườn Trái Cây Long Khánh</div>
+</div>
+
+</div>
+</section>
+
+<!-- Ý 4 -->
+<section>
+<h2>Ẩm thực Đồng Nai</h2>
+<div class="hover-box">
+
+<div class="item" onclick="openModal(this)" data-text="Lẩu lá khổ qua rừng là món ăn đặc sản Đồng Nai độc đáo với vị đắng thanh đặc trưng từ lá rừng kết hợp nước lẩu ngọt từ xương hầm và cá suối. Nhiều du khách tò mò Đồng Nai có đặc sản gì, thì đây chính là món ăn vừa lạ vừa tốt cho sức khỏe. ">
+<img src="images/img16.jpg">
+<div class="caption">Lẩu lá khổ qua rừng</div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="Gà hấp sẽ dùng vỏ bưởi chứ không dùng múi vì bưởi Tân Triều có mùi thơm đặc trưng sẽ giúp gà thêm đậm đà hương vị. Những trái bưởi già được khéo léo tách riêng phần vỏ và ruột, tạo thành khoảng giữa để cho gà và gia vị tẩm ướp vào trong. Người dân Đồng Nai thường dùng gà ri hoặc gà ta với phần da vàng, thịt chắc để hấp.">
+<img src="images/img17.jpg">
+<div class="caption">Gà hấp bưởi</div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="Nhắc đến đặc sản Đồng Nai mà bỏ qua sữa tươi Long Thành sẽ là một thiếu sót rất lớn. Những trang trại bò sữa rộng lớn tại đây đã tạo ra nguồn sữa sạch và bổ dưỡng được bán rộng rãi trên cả nước. Mua sữa trực tiếp từ trang trại sẽ có giá tốt hơn, chất lượng đảm bảo. Ngoài ra, bạn còn có thể vào tham quan trang trại nuôi bò sữa để được tận mắt khám phá quy trình làm ra loại sữa tươi ngon mà chúng ta vẫn uống mỗi ngày.">
+<img src="images/img18.jpg">
+<div class="caption">Sữa bò Long Thành</div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="Những năm gần đây, món trứng vịt lộn hấp nước dừa đang hot rần rần tại Biên Hòa, Đồng Nai. Không biết ai là người đầu tiên sáng tạo ra món ăn độc đáo này nhưng hương vị thơm ngon đã giúp món ăn nhanh chóng phổ biến là được người dân Đồng Nai cực kỳ yêu thích. Mỗi trái trứng vịt lộn hấp nước dừa có giá chỉ 7.000 đến 8.000 VND, ăn cùng với rau răm và muối tiêu là chuẩn vị. Tuy không phải là đặc sản Đồng Nai quá đặc sắc nhưng đây lại là món ăn vặt, ăn đêm cực kỳ được ưa chuộng.">
+<img src="images/img19.jpg">
+<div class="caption">Trứng vịt lộn hấp nước dừa</div>
+</div>
+
+</div>
+</section>
+
+<!-- Ý 5 -->
+<section>
+<h2>Siêu dự án sắp ra mất </h2>
+<div class="hover-box">
+
+<div class="item" onclick="openModal(this)" data-text="Sân bay Quốc tế Long Thành là siêu dự án hạ tầng trọng điểm quốc gia tại huyện Long Thành, Đồng Nai, với tổng vốn đầu tư hơn 16 tỷ USD trên quy mô 5.000 ha. Dự án được chia thành 3 giai đoạn, mục tiêu trở thành cảng hàng không trung chuyển lớn nhất khu vực Đông Nam Á, giảm tải cho sân bay Tân Sơn Nhất và dự kiến vận hành giai đoạn 1 vào giữa năm 2026.  ">
+<img src="images/img20.jpg">
+<div class="caption">Sân bay Long Thành</div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="Dự án Aqua City do Tập đoàn Novaland phát triển là khu đô thị sinh thái thông minh quy mô gần 1.000 ha tại Biên Hòa, Đồng Nai, nổi bật với vị trí ven sông, hệ thống tiện ích đẳng cấp và các sản phẩm nhà phố, biệt thự, shophouse cao cấp. Đây được coi là dự án bất động sản chiến lược, đón đầu hạ tầng khu Đông TP.HCM, mang đến không gian sống nghỉ dưỡng hiện đại. ">
+<img src="images/img21.jpg">
+<div class="caption">Aqua City </div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="Siêu dự án Metro 60.000 tỷ đồng (hoặc hơn 60.000 tỷ) là dự án kéo dài tuyến Metro số 1 (Bến Thành - Suối Tiên) từ TP.HCM đến sân bay quốc tế Long Thành (Đồng Nai). Tuyến đường này dài hơn 40km, có vai trò kết nối trực tiếp trung tâm TP.HCM với siêu sân bay lớn nhất Việt Nam, dự kiến được đầu tư bởi tỉnh Đồng Nai.">
+<img src="images/img22.jpg">
+<div class="caption">Tuyến Metro từ tpHcm-Sân bay Long Thành </div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="Dự án Đảo Kim Quy (trước đây là Cù lao Tân Vạn) do TTC Land phát triển là khu phức hợp đô thị sinh thái cao cấp rộng 48 ha tại phường Tân Vạn, TP. Biên Hòa, tỉnh Đồng Nai. Nổi bật với vị trí 4 mặt giáp sông Đồng Nai, dự án quy mô 7.200 tỷ đồng này bao gồm 571 căn nhà phố, biệt thự, cung cấp không gian sống xanh, đẳng cấp ngay cửa ngõ TP.HCM">
+<img src="images/img23.jpg">
+<div class="caption">Đảo Kim Quy</div>
+</div>
+
+</div>
+</section>
+
+
+
+<!-- Ý 6 -->
+<section>
+<h2>Top trường Đồng Nai</h2>
+<div class="hover-box">
+
+<div class="item" onclick="openModal(this)" data-text="Trường THPT chuyên Lương Thế Vinh là trường chuyên hàng đầu của tỉnh Đồng Nai, được thành lập năm 1994. Đây là nơi đào tạo học sinh giỏi với các lớp chuyên sâu về tự nhiên và xã hội, luôn đạt thành tích cao trong các kỳ thi học sinh giỏi và đại học. Trường có tỷ lệ tốt nghiệp gần như tuyệt đối và nhiều học sinh đạt giải cấp quốc gia. ">
+<img src="images/img24.jpg">
+<div class="caption">THPT chuyên Lương Thế Vinh</div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="THPT Trấn Biên là một trong những trường chất lượng cao của tỉnh, được thành lập năm 2003. Trường nổi bật với môi trường học tập hiện đại, đội ngũ giáo viên tận tâm và nhiều thành tích trong giảng dạy. Tỷ lệ học sinh khá giỏi và đỗ đại học luôn ở mức cao, góp phần khẳng định vị thế trong hệ thống giáo dục Đồng Nai.">
+<img src="images/img25.jpg">
+<div class="caption">THPT Trấn Biên </div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="THPT Ngô Quyền là một trong những trường lâu đời nhất tại Đồng Nai, thành lập từ năm 1956. Trường có bề dày truyền thống và là nơi đào tạo nhiều thế hệ học sinh xuất sắc. Đây cũng là tiền thân của nhiều trường chất lượng cao trong tỉnh. Học sinh của trường thường đạt nhiều giải thưởng và thành tích nổi bật trong các kỳ thi học thuật.">
+<img src="images/img26.jpg">
+<div class="caption">THPT Ngô Quyền </div>
+</div>
+
+<div class="item" onclick="openModal(this)" data-text="THPT Thống Nhất A là trường THPT công lập có chất lượng ổn định tại Đồng Nai. Trường chú trọng phát triển toàn diện cho học sinh cả về kiến thức và kỹ năng. Với môi trường học tập nghiêm túc và thân thiện, trường đã đào tạo nhiều thế hệ học sinh đạt kết quả tốt trong kỳ thi tốt nghiệp và tuyển sinh đại học">
+<img src="images/img27.jpg">
+<div class="caption">THPT Thống Nhất A</div>
+</div>
+
+</div>
+</section>
+
+<!-- Thành viên --> 
+ <section> <h2>Thành viên & Nhiệm vụ</h2> 
+  <div class="member-box"> 
+    <ul> 
+      <li> 
+        <span>Nguyễn Trung Hậu - Thiết kế giao diện, code chính</span> <img src="images/Hau.jpg"> </li> 
+      <li> 
+        <span>Đinh Văn Đạt - Nội dung & chỉnh sửa</span> <img src="images/Dat.jpg"> </li> 
+      <li> 
+        <span>Phạm Nguyễn Uyên Nhi - Thu thập tư liệu</span> <img src="images/Nhi.jpg"> </li>
+      <li> 
+        <span>Nguyễn Thị Bích Thuỳ - Lên kế hoạch</span> <img src="images/Thuy.jpg"> </li> 
+      <li> 
+        <span>Nguyễn Thị Hoài Thương - Xây dựng bố cục , vị trí</span> <img src="images/Thuong.jpg"> </li> 
+      <li> 
+        <span>Nguyễn Huế Trân - Tìm kiếm nội dung</span> <img src="images/Hue.jpg"> </li> 
+      <li> 
+        <span>Nguyễn Thị Vân Anh - Tìm kiếm nội dung</span> <img src="images/VAnh.jpg"> </li> 
+    </ul>
+  </div>
+ </section>
+<!-- modal -->
+<div class="modal" id="modal">
+<span class="close" onclick="closeModal()">&times;</span>
+<div class="modal-content">
+<img id="modal-img">
+<div class="modal-text" id="modal-text"></div>
+</div>
+</div>
+
+<footer>
+<p>© 2026 Group7</p>
+</footer>
+
+<script>
+let index=0;
+setInterval(()=>{
+ const slides=document.getElementById('slides');
+ const total=slides.children.length;
+ index=(index+1)%total;
+ slides.style.transform=`translateX(-${index*100}%)`;
+},4000);
+
+function openModal(el){
+ document.getElementById('modal').style.display='flex';
+ document.getElementById('modal-img').src=el.querySelector('img').src;
+ document.getElementById('modal-text').innerText=el.dataset.text;
+}
+function closeModal(){
+ document.getElementById('modal').style.display='none';
+}
+
+/* đổi màu nền mượt */
+const sections=document.querySelectorAll('section');
+const colors=[
+ ['#FFEABB','#FBC3C1'],
+ ['#FBC3C1','#FAACBF'],
+ ['#FAACBF','#FE81D4'],
+ ['#FE81D4','#92487A'],
+ ['#92487A','#540863'],
+ ['#540863','#2C003E']
+];
+
+window.addEventListener('scroll',()=>{
+ let i=0;
+ sections.forEach((sec,index)=>{
+   if(sec.getBoundingClientRect().top < window.innerHeight/2){
+     i=index;
+   }
+ });
+ const c=colors[i%colors.length];
+ document.body.style.background=`linear-gradient(120deg,${c[0]},${c[1]})`;
+});
+</script>
+
+</body>
+</html>
