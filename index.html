@@ -10,9 +10,23 @@
 
 /* background */
 body{
-  background:linear-gradient(120deg,#FFEABB,#FBC3C1);
-  transition:0.8s;
-}
+  margin:0;
+  font-family:Arial;
+
+  background: linear-gradient(
+    to bottom,
+    #84B179 0%,
+    #A2CB8B 15%,
+    #C7EABB 30%,
+    #E8F5BD 50%,
+    #FFE3E1 70%,
+    #FFD1D1 100%
+  );
+
+
+  
+  background-size: 100% 100%;}
+
 
 /* header */
 header{
@@ -164,10 +178,16 @@ h2{margin-bottom:30px}
 
 /* footer */
 footer{
-  background:#333;
+  background:black;
   color:white;
   text-align:center;
-  padding:30px;
+  padding:40px 20px;
+  font-size:14px;
+}
+
+footer p{
+  margin:6px 0;
+  letter-spacing:0.5px;
 }
 </style>
 </head>
@@ -354,14 +374,18 @@ footer{
       <li> 
         <span>Nguyễn Thị Bích Thuỳ - Lên kế hoạch</span> <img src="images/Thuy.jpg"> </li> 
       <li> 
-        <span>Nguyễn Thị Hoài Thương - Xây dựng bố cục , vị trí</span> <img src="images/Thuong.jpg"> </li> 
+        <span>Nguyễn Phạm Hoài Thương - Xây dựng bố cục , vị trí</span> <img src="images/Thuong.jpg"> </li> 
       <li> 
-        <span>Nguyễn Huế Trân - Tìm kiếm nội dung</span> <img src="images/Hue.jpg"> </li> 
+        <span>Trịnh Thị Huế Trân - Tìm kiếm nội dung</span> <img src="images/Hue.jpg"> </li> 
       <li> 
-        <span>Nguyễn Thị Vân Anh - Tìm kiếm nội dung</span> <img src="images/VAnh.jpg"> </li> 
+        <span>Đặng Ngọc Vân Anh - Tìm kiếm nội dung</span> <img src="images/VAnh.jpg"> </li> 
     </ul>
   </div>
  </section>
+
+
+
+
 <!-- modal -->
 <div class="modal" id="modal">
 <span class="close" onclick="closeModal()">&times;</span>
@@ -371,8 +395,12 @@ footer{
 </div>
 </div>
 
+
 <footer>
-<p>© 2026 Group7</p>
+  <p><strong>Đồng Nai - Đất lành chim đậu</strong></p>
+  <p>Poster - Group 7</p>
+  <p>Email: Group7TNA@gmail.com | Phone: 01836xxxxx</p>
+  <p>© 2026 All rights reserved</p>
 </footer>
 
 <script>
@@ -393,27 +421,7 @@ function closeModal(){
  document.getElementById('modal').style.display='none';
 }
 
-/* đổi màu nền mượt */
-const sections=document.querySelectorAll('section');
-const colors=[
- ['#FFEABB','#FBC3C1'],
- ['#FBC3C1','#FAACBF'],
- ['#FAACBF','#FE81D4'],
- ['#FE81D4','#92487A'],
- ['#92487A','#540863'],
- ['#540863','#2C003E']
-];
 
-window.addEventListener('scroll',()=>{
- let i=0;
- sections.forEach((sec,index)=>{
-   if(sec.getBoundingClientRect().top < window.innerHeight/2){
-     i=index;
-   }
- });
- const c=colors[i%colors.length];
- document.body.style.background=`linear-gradient(120deg,${c[0]},${c[1]})`;
-});
 </script>
 
 </body>
